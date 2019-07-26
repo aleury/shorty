@@ -37,6 +37,13 @@ defmodule Shorty.Links do
   """
   def get_link!(id), do: Repo.get!(Link, id)
 
+  def get_link_by_shortcode(shortcode) do
+    case Repo.get_by(Link, shortcode: shortcode) do
+      nil -> {:error, :not_found}
+      %Link{} = link -> {:ok, link}
+    end
+  end
+
   @doc """
   Creates a link.
 

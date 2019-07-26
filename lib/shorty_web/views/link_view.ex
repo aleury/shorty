@@ -11,8 +11,6 @@ defmodule ShortyWeb.LinkView do
   end
 
   def render("link.json", %{link: link}) do
-    %{id: link.id,
-      hash: link.hash,
-      url: link.url}
+    %{id: link.id, shortcode: link.shortcode, url: link.url}
   end
 end
